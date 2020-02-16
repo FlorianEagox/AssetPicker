@@ -1,10 +1,14 @@
 tool
 extends EditorPlugin
 
+var plugin
 
 func _enter_tree() -> void:
-	pass
+	var pluginReference: Resource = preload("InspectorPlugin.gd")
+	plugin = pluginReference.new()
+	add_inspector_plugin(plugin)
 
 
 func _exit_tree() -> void:
-	pass
+	remove_inspector_plugin(plugin)
+	plugin = null
