@@ -4,7 +4,7 @@ var plugin
 var btnDebug
 func _enter_tree() -> void:
 	btnDebug = Button.new()
-	get_editor_interface().get_inspector().connect("mouse_exited", self, "debug_inspector")
+	#get_editor_interface().get_inspector().connect("mouse_exited", self, "debug_inspector")
 	btnDebug.connect("pressed", self, "debug_inspector")
 	plugin = InspectorPlugin.new()
 	add_inspector_plugin(plugin)
@@ -17,9 +17,9 @@ func _exit_tree() -> void:
 	remove_control_from_container(CONTAINER_TOOLBAR, btnDebug)
 
 func debug_inspector():
-	print_children_readable(get_editor_interface().get_inspector())
+	pass
+	# print_children_readable(get_editor_interface().get_inspector())
 	
-
 
 # This function is very useful for parsing actual Editor elements
 func print_children_readable(child: Control, level: int = 0):
